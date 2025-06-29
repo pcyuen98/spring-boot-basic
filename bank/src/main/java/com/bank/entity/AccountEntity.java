@@ -1,5 +1,50 @@
 package com.bank.entity;
 
-public class AccountEntity {
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
+@Data
+@Entity
+@Table(name = "account")
+@NoArgsConstructor
+@AllArgsConstructor
+public class AccountEntity implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="account_id")
+    private Long accountID;
+
+    @Column(name = "account_number", nullable = false, unique = true)
+    private String accountNumber;
+
+    @Column(name = "balance")
+    private Double balance;
+
+    @ManyToOne(optional = false) // account must have a customer
+    @JoinColumn(name = "customer_id", nullable = false)
+    private CustomerEntity customer;
+    
+    @Column(name = "creation_date", nullable = false)
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private LocalDateTime creationDate;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "account_product",
+        joinColumns = @JoinColumn(name = "account_id"),
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private Set<ProductEntity> products = new HashSet<>();
 }

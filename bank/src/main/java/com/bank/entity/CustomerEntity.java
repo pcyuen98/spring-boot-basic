@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,10 +35,10 @@ public class CustomerEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
-    private Long id;
+    private Long customerID;
 
-    @Column(name = "username", unique = true, nullable = false, length = 50)
-    private String username;
+    @Column(name = "ic_number", unique = true, nullable = false, length = 50)
+    private String icNumber;
 
     @Column(name = "lastname", nullable = false, length = 200)
     private String lastname;
@@ -52,9 +53,8 @@ public class CustomerEntity implements Serializable {
     @Temporal(value = TemporalType.TIMESTAMP)
     private LocalDateTime creationDate;
 
-
-   // @OneToMany(mappedBy = "usersEntity", orphanRemoval = true)
-   // private List<UserHistoryEntity> userHistoryEntity = new ArrayList<>();
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = false)
+    private List<AccountEntity> accounts = new ArrayList<>();
     
     // Set creationDate to current time if it's null before persisting
     @PrePersist

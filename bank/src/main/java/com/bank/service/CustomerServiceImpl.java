@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ICustomerServiceImpl implements ICustomerService {
+public class CustomerServiceImpl implements ICustomerService {
 
     @Autowired
     private ICustomerRepo customerRepo;
@@ -32,7 +32,7 @@ public class ICustomerServiceImpl implements ICustomerService {
     @Override
     public CustomerEntity updateCustomer(Long id, CustomerEntity updatedCustomer) {
         return customerRepo.findById(id).map(existing -> {
-            existing.setUsername(updatedCustomer.getUsername());
+            existing.setIcNumber(updatedCustomer.getIcNumber());
             existing.setLastname(updatedCustomer.getLastname());
             existing.setSurname(updatedCustomer.getSurname());
             existing.setDescription(updatedCustomer.getDescription());
