@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.bank.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -20,9 +20,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "customer")
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerEntity implements Serializable {
@@ -38,14 +39,11 @@ public class CustomerEntity implements Serializable {
     @Column(name = "username", unique = true, nullable = false, length = 50)
     private String username;
 
-    @Column(name = "name", nullable = false, length = 200)
-    private String name;
+    @Column(name = "lastname", nullable = false, length = 200)
+    private String lastname;
 
     @Column(name = "surname", nullable = false)
     private String surname;
-
-    @Column(name = "photo")
-    private String photo;
 
     @Column(name = "description", length = 500)
     private String description;
@@ -54,16 +52,9 @@ public class CustomerEntity implements Serializable {
     @Temporal(value = TemporalType.TIMESTAMP)
     private LocalDateTime creationDate;
 
-    @Column(name = "last_updated_date")
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private LocalDateTime lastUpdatedDate;
-    
-    @Column(name = "deletion_date")
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private LocalDateTime deletionDate;
 
-    @OneToMany(mappedBy = "usersEntity", orphanRemoval = true)
-    private List<UserHistoryEntity> userHistoryEntity = new ArrayList<>();
+   // @OneToMany(mappedBy = "usersEntity", orphanRemoval = true)
+   // private List<UserHistoryEntity> userHistoryEntity = new ArrayList<>();
     
     // Set creationDate to current time if it's null before persisting
     @PrePersist
