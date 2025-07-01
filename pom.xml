@@ -10,6 +10,7 @@
 	</properties>
     <modules>
         <module>Backend_Util</module>
+		<module>demo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
