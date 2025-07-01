@@ -3,7 +3,7 @@ package com.bank;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// message from the branch..
+// remove message from the main..
 @SpringBootApplication
 public class BankApplication {
 
