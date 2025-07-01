@@ -19,6 +19,9 @@ RUN wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/j
 RUN rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 RUN yum -y install jenkins
 
+RUN ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime && \
+    echo "Asia/Kuala_Lumpur" > /etc/timezone
+	
 # Optional: Create a non-root user
 RUN adduser developer && echo "developer:pass" | chpasswd
 
@@ -26,4 +29,5 @@ RUN adduser developer && echo "developer:pass" | chpasswd
 WORKDIR /workspace
 
 # Default command
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
+CMD ["jenkins"]

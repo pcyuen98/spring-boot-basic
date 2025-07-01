@@ -13,6 +13,7 @@ services:
       - centos9_data:/data  # Persistent storage
     tty: true
     stdin_open: true
+    privileged: true 
     restart: unless-stopped
 
   mysql:
