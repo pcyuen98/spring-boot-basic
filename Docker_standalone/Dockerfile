@@ -15,9 +15,6 @@ RUN yum -y install iputils
 RUN yum -y install maven
 RUN yum -y install docker
 RUN yum -y install openssh-clients
-RUN wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-RUN rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-RUN yum -y install jenkins
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime && \
     echo "Asia/Kuala_Lumpur" > /etc/timezone
@@ -28,6 +25,8 @@ RUN adduser developer && echo "developer:pass" | chpasswd
 # Set working directory
 WORKDIR /workspace
 
+EXPOSE 8081
+
 # Default command
-CMD ["/bin/bash"]
+CMD ["/usr/sbin/init"]
 
