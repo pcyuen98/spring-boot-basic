@@ -29,5 +29,7 @@ RUN adduser developer && echo "developer:pass" | chpasswd
 WORKDIR /workspace
 
 # Default command
+
 #CMD ["/bin/bash"]
+
 CMD ["jenkins"]
