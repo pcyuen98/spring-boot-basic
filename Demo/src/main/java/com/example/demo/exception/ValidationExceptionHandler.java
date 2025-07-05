@@ -23,6 +23,7 @@ public class ValidationExceptionHandler {
 	public ResponseEntity<Map<String, Object>> handleRuntimeValidationException(RuntimeException ex) {
 
 		Map<String, Object> responseBody = new HashMap<>();
+		responseBody.put("type", "custom exception");
 		responseBody.put("status", HttpStatus.BAD_REQUEST.value());
 		responseBody.put("errors", ex.getMessage());
 

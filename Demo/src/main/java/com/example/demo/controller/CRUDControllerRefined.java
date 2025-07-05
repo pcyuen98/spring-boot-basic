@@ -19,11 +19,11 @@ import com.example.demo.validation.ItemValidation;
 
 @RestController
 @RequestMapping("/demo/v2")
-public class CRUDController_Refined {
+public class CRUDControllerRefined {
 
     private final ItemService itemService;
 
-    public CRUDController_Refined(ItemService itemService) {
+    public CRUDControllerRefined(ItemService itemService) {
         this.itemService = itemService;
     }
 

@@ -5,11 +5,16 @@ import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.boot.actuate.info.InfoEndpoint;
 import org.springframework.boot.actuate.metrics.MetricsEndpoint;
 import org.springframework.boot.actuate.metrics.MetricsEndpoint.MetricDescriptor;
+import org.springframework.boot.actuate.metrics.MetricsEndpoint.MetricNamesDescriptor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+
+// basic actuator 
+// http://localhost:8080/actuator
 
 @RestController
 @RequestMapping("/api/actuator/v1")
@@ -39,6 +44,22 @@ public class ActuatorSummaryController {
 		result.put("http.server.requests", httpRequests);
 		result.put("system.cpu.usage", cpuUsage);
 		result.put("version", "Jenkins");
+
+		return ResponseEntity.ok(result);
+	}
+	
+	//TODO: SpringBoot: Practical 10 - Implementing custom error handling mechanisms for actuator.
+	// Refer to the day 1 demo app sample, locate the exception handler sample on com.example.demo.exception package
+	// modify the controller below to accept parameter of search string of metric value .i.e jvm or http
+	// if value not found then throw a custom exception 
+	
+	// write a unit testing for the exception class handler. Refer to ValidationExceptionHandlerTest.java from the demo app
+	
+	@GetMapping("/metricDetails")
+	public ResponseEntity<Map<String, Object>> getActuatorMetric() {
+		Map<String, Object> result = new LinkedHashMap<>();
+		MetricNamesDescriptor md = metricsEndpoint.listNames();
+		result.put("metric.list", md.getNames());
 
 		return ResponseEntity.ok(result);
 	}

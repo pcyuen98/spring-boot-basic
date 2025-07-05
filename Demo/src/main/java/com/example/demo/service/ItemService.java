@@ -1,15 +1,14 @@
 package com.example.demo.service;
 
-import org.springframework.stereotype.Service;
-
-import com.example.demo.model.Item;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Item;
 
 @Service // Mark this as a Spring service component
 public class ItemService {
@@ -39,18 +38,27 @@ public class ItemService {
 	}
 
 	public List<Item> getAllItems() {
-		return dataStore.entrySet().stream().map(entry -> new Item(entry.getKey(), entry.getValue()))
-				.collect(Collectors.toList());
+	    return dataStore.entrySet().stream()
+	            .map(entry -> new Item(entry.getKey(), entry.getValue()))
+	            .toList();  
 	}
 
-	public Optional<Item> updateItem(Long id, String newValue) {
-		// Validation for newValue would be in controller/validation class.
-		if (dataStore.containsKey(id)) {
-			dataStore.put(id, newValue);
-			return Optional.of(new Item(id, newValue));
-		}
-		return Optional.empty(); // Item not found for update
-	}
+    public Optional<Item> updateItem(Long id, String newValue) {
+        // Validation for newValue would be in controller/validation class.
+
+        // Using computeIfPresent to update the item if the key exists.
+        // The lambda function returns the newValue, which will replace the existing value.
+        // If the key is not present, the lambda is not executed, and computeIfPresent returns null.
+        String updatedValue = dataStore.computeIfPresent(id, (key, existingValue) -> newValue);
+
+        if (updatedValue != null) {
+            // If updatedValue is not null, it means the key was present and the value was updated.
+            return Optional.of(new Item(id, updatedValue));
+        } else {
+            // If updatedValue is null, it means the key was not present.
+            return Optional.empty(); // Item not found for update
+        }
+    }
 
 	public boolean deleteItem(Long id) {
 		return dataStore.remove(id) != null;

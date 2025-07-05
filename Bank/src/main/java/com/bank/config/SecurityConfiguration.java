@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer.FrameOptionsConfig;
 import org.springframework.security.web.SecurityFilterChain;
 
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ public class SecurityConfiguration {
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll() // Allow all requests to any endpoint
 		).csrf(csrf -> csrf.disable()) // Disable CSRF protection (NOT recommended for production)
 				.cors(cors -> cors.disable()) // Disable CORS checks (NOT recommended for production)
-				.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable())); // Allow iframes for
+				.headers(headers -> headers.frameOptions(FrameOptionsConfig::disable)); // Allow iframes for
 																									// H2 console etc.
 																									// (NOT recommended
 																									// for production)

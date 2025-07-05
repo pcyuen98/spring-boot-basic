@@ -78,23 +78,23 @@ public class CRUDController {
 	// --- UPDATE (HTTP PUT) ---
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateItem(@PathVariable Long id, @RequestBody String updatedName) {
-		if (updatedName == null || updatedName.isBlank()) {
-			return new ResponseEntity<>("Updated item name cannot be empty or blank.", HttpStatus.BAD_REQUEST); // 400
-																												// Bad
-																												// Request
-		}
-		if (dataStore.containsKey(id)) {
-			dataStore.put(id, updatedName); // Replace existing item
-			return new ResponseEntity<>("Item with ID: " + id + " updated successfully to: " + updatedName,
-					HttpStatus.OK); // 200 OK if updated
-		}
-		return new ResponseEntity<>("Item with ID: " + id + " not found for update.", HttpStatus.NOT_FOUND); // 404 Not
-																												// Found
-																												// if
-																												// not
-																												// found
-	}
+	    if (updatedName == null || updatedName.isBlank()) {
+	        return new ResponseEntity<>("Updated item name cannot be empty or blank.", HttpStatus.BAD_REQUEST); // 400 Bad Request
+	    }
 
+	    // Use computeIfPresent to update the item if it exists
+	    String oldName = dataStore.computeIfPresent(id, (key, existingName) -> updatedName);
+
+	    if (oldName != null) {
+	        // If oldName is not null, it means the key was present and the value was updated
+	        return new ResponseEntity<>("Item with ID: " + id + " updated successfully to: " + updatedName,
+	                                HttpStatus.OK); // 200 OK if updated
+	    } else {
+	        // If oldName is null, it means the key was not present
+	        return new ResponseEntity<>("Item with ID: " + id + " not found for update.", HttpStatus.NOT_FOUND); // 404 Not Found if not found
+	    }
+	}
+	
 	// --- DELETE (HTTP DELETE) ---
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteItem(@PathVariable Long id) {
