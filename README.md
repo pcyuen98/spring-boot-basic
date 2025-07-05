@@ -7,35 +7,32 @@
 
 <b>
 
+Foundation & REST APIs - Learn Spring Boot fundamentals, set up your environment, and build basic RESTful APIs.
 
+Web & Error Handling - Understand Spring Web MVC, use DTOs, and implement robust error handling.
 
-1) To use Java and build a live application using latest technology, framework and design
-					
-2) To build a Java application with automation and Dev Ops (Developement Operation) Environment
-				
-3) To build application with Microservices Design as API Restful Services provider				
+Data Persistence (JPA) - Spring Data JPA for database interactions, defining entities, and performing CRUD operations.
 
-4) To build an application with live example which is integration with 
-Covid API services - https://covid-19-apis.postman.com/
+Advanced Features & Monitoring - Explore externalized configuration, logging, and application monitoring with Spring Boot Actuator.
 
-5) To build and deploy JEE application on simulation server from end to end
+Testing & Deployment - Gain skills in testing, packaging, deploying Spring Boot applications, and troubleshooting.
 
 </b>
 
 # Manual A - Create your first Git Hub
 https://docs.google.com/document/d/1ohb52xOEZTbvAtgYo-haXdCednwa-4Gc/edit#heading=h.pscfpgrh5zta
 
-# Manual B - Configure Your Environment
-https://docs.google.com/document/d/1sLfvVACVJ4OOEcmhOS1gB8iS8V5IvMSlWWalOY_4WCM/edit?usp=sharing
+# SpringBoot- Manual B - Configuration
+https://docs.google.com/document/d/1aMSPjvs-OTn4WOGl4KigjdjhcTylteW-i3V855pRYws/edit?usp=drive_link
 
-# Manual C - Configure Covid Apps With VM
-https://docs.google.com/document/d/1rw0uv0jHWLHhjP-Tt9gSJoZA26xav5csF7EshvVLFKo/edit?usp=sharing
+# SpringBoot- Manual C - Spring Initializer
+https://docs.google.com/document/d/1A_oTBVVqZjudgiHwV5lwD-irwJC6UPUpa1bjWdiZCYc/edit?usp=drive_link
 
-# Manual D - How to commit codes to Git HUb
-https://drive.google.com/file/d/1iQhKMmc7rD18sQNb_DMk8n83BSduL1Y8/view?usp=sharing
+# SpringBoot- Manual D - SonarQube
+https://docs.google.com/document/d/1n0uMPG_Z5IEMnHtEthUd5sWWH0xL1FquYhwzEdQt2tw/edit?usp=drive_link
 
-# Manual E - Postman Configuration
-https://drive.google.com/file/d/1AbvCo08EXhytgbIX4MrQtnR-ybVO3Tns/view?usp=sharing
+# SpringBoot - Manual E - Postman
+https://docs.google.com/document/d/1Gmbb9z-j1G9SjPUOKag2S1QLA4Jge2f3ujYkxvhs5h0/edit?tab=t.0
 
 # Assessment, writing code and Test 
 https://docs.google.com/document/d/1cQHPBTt2D9EjtZ4GjKFXegZrSZNb2354bN-8ICMW52g/edit?usp=sharing

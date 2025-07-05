@@ -14,8 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ValidationExceptionHandler {
 
-//TODO: Day2: Practical 3 
-// Create a new custom expcetion handler method below for NumberFormatException - Refer to ItemValidation.java
+//TODO: SpringBoot: Practical 6 - Implementing custom error handling mechanisms.
+// Create a new custom exception handler method below for NumberFormatException - Refer to ItemValidation.java
 // Ensure error is log as below
 // [demo] [nio-8080-exec-1] c.e.d.e.ValidationExceptionHandler       : NumberFormatException handled:
 	

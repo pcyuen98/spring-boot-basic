@@ -12,7 +12,7 @@ import com.bank.entity.AccountEntity;
 @RequestMapping("/api/products/v1")
 public class ProductController {
 
-	// TODO: Day3:Practical 2
+	// TODO: SpringBoot:Practical 8
 	// create a new DO Get method to pull all product related to account no
 	// account is a passing parameter
 	// use swagger to test it

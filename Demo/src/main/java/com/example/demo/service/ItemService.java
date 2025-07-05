@@ -12,29 +12,6 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Service // Mark this as a Spring service component
-
-//TODO: Day2:Practical 2 (Group)
-// Search restful services
-
-//Discuss in a group 
-// How to modify the existing Spring Boot to search input words
-// 
-// Hint:Use the API below with passing parameter of "demo" and return objects with "demo" only
-// Discuss use DO POST or DO GET
-
-//Create a new service call ItemServiceAnalysis
-//Complete the method getAllItemsWithDemo()
-//return only the value with "demo" wording
-
-//Create a Unit Testing to test the method above
-
-
-//Create a new RestController with class name of CRUDController_Day1Practical.java
-//Add DOGET, DOPOST, DO DELETE and DOPUT function as below 
-//Ensure it's working with Postman
-//Upload your code your Git Hub
-
-
 public class ItemService {
 
 	private final Map<Long, String> dataStore = new ConcurrentHashMap<>();

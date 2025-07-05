@@ -11,7 +11,7 @@ import com.example.demo.model.Item;
 
 @RestController
 @RequestMapping("/demo/exception/v1") // Base path for all endpoints in this controller
-public class ExceptionController_Day2Practical {
+public class ExceptionController_Practical {
 
     @GetMapping
     public ResponseEntity<List<Item>> testException() throws RuntimeException {

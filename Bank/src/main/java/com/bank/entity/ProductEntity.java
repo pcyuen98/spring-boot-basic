@@ -17,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class ProductEntity implements Serializable {
 
-	// TODO: Day3:Practical 1
+	// TODO: SpringBoot:Practical 7
 	// Implement the CRUD service below
 	// ProductController.java
 	// IProductService.java
