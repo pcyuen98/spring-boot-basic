@@ -1,16 +1,14 @@
-version: "3.9"
-
 services:
-  centos9:
+  jenkins:
     build:
       context: .            # Current directory contains Dockerfile
-    container_name: centos9
+    container_name: jenkins
     ports:
       - "2222:22"           # SSH (if used later)
       - "8081:8080"         # Optional app port
-      - "9000:9000"         # Optional service port
+      - "9001:9001"         # Optional service port
     volumes:
-      - centos9_data:/data  # Persistent storage
+      - jenkins_data:/data  # Persistent storage
     tty: true
     stdin_open: true
     privileged: true 
@@ -29,7 +27,7 @@ services:
 
 volumes:
   mysql-data:
-  centos9_data:
+  jenkins_data:
 
 networks:
   devnet:
