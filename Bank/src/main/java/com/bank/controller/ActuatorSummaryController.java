@@ -38,7 +38,7 @@ public class ActuatorSummaryController {
 		result.put("jvm.memory.used", memoryUsed);
 		result.put("http.server.requests", httpRequests);
 		result.put("system.cpu.usage", cpuUsage);
-		result.put("version", "Standalone Docker");
+		result.put("version", "Jenkins");
 
 		return ResponseEntity.ok(result);
 	}
