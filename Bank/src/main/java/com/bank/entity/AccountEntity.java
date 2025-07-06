@@ -34,7 +34,7 @@ public class AccountEntity implements Serializable {
 
     @ManyToOne(optional = false) // account must have a customer
     @JoinColumn(name = "customer_id", nullable = false)
-    private CustomerEntity customer;
+    private CustomerEntity customerEntity;
     
     @Column(name = "creation_date", nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
@@ -47,4 +47,12 @@ public class AccountEntity implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private Set<ProductEntity> products = new HashSet<>();
+    
+    // Set creationDate to current time if it's null before persisting
+    @PrePersist
+    protected void onCreate() {
+        if (this.creationDate == null) {
+            this.creationDate = LocalDateTime.now();
+        }
+    }
 }

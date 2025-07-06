@@ -34,7 +34,7 @@ public class CustomerEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name="customer_id")
     private Long customerID;
 
     @Column(name = "ic_number", unique = true, nullable = false, length = 50)
@@ -53,8 +53,8 @@ public class CustomerEntity implements Serializable {
     @Temporal(value = TemporalType.TIMESTAMP)
     private LocalDateTime creationDate;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = false)
-    private List<AccountEntity> accounts = new ArrayList<>();
+    @OneToMany(mappedBy = "customerEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AccountEntity> accountEntities = new ArrayList<>();
     
     // Set creationDate to current time if it's null before persisting
     @PrePersist

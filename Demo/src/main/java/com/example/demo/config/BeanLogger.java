@@ -10,6 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class BeanLogger implements ApplicationRunner {
 	private static final Logger logger = LoggerFactory.getLogger(BeanLogger.class);

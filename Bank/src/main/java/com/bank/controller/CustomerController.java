@@ -1,41 +1,61 @@
 package com.bank.controller;
 
-import com.bank.entity.CustomerEntity;
-import com.bank.service.ICustomerService;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.bank.entity.CustomerEntity;
+import com.bank.mapper.CustomerMapper;
+import com.bank.model.CustomerDTO;
+import com.bank.service.ICustomerService;
 
 @RestController
 @RequestMapping("/api/customers/v1")
 public class CustomerController {
 
+	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+	
     @Autowired
     private ICustomerService customerService;
 
+    @Autowired
+    private CustomerMapper customerMapper;
+    
     @PostMapping
     public ResponseEntity<CustomerEntity> createCustomer(@RequestBody CustomerEntity customer) {
+    	logger.info("createCustomer started customer={}", customer);
         return ResponseEntity.ok(customerService.createCustomer(customer));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CustomerEntity> getCustomerById(@PathVariable Long id) {
+    public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable Long id) {
+    	logger.info("getCustomerById started id={}", id);
         return customerService.getCustomerById(id)
+                .map(customerMapper::toDto)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public ResponseEntity<List<CustomerEntity>> getAllCustomers() {
-        return ResponseEntity.ok(customerService.getAllCustomers());
+    public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
+        return ResponseEntity.ok(customerMapper.toDtoList(customerService.getAllCustomers()));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CustomerEntity> updateCustomer(@PathVariable Long id, @RequestBody CustomerEntity customer) {
+    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerEntity customer) {
         try {
-            return ResponseEntity.ok(customerService.updateCustomer(id, customer));
+            return ResponseEntity.ok(customerMapper.toDto(customerService.updateCustomer(id, customer)));
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
