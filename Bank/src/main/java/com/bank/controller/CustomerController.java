@@ -33,9 +33,10 @@ public class CustomerController {
     private CustomerMapper customerMapper;
     
     @PostMapping
-    public ResponseEntity<CustomerEntity> createCustomer(@RequestBody CustomerEntity customer) {
+    public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customer) {
     	logger.info("createCustomer started customer={}", customer);
-        return ResponseEntity.ok(customerService.createCustomer(customer));
+    	CustomerEntity customerEntity = customerMapper.toEntity(customer);
+        return ResponseEntity.ok(customerMapper.toDto(customerService.createCustomer(customerEntity)));
     }
 
     @GetMapping("/{id}")
@@ -53,9 +54,9 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerEntity customer) {
+    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customer) {
         try {
-            return ResponseEntity.ok(customerMapper.toDto(customerService.updateCustomer(id, customer)));
+            return ResponseEntity.ok(customerMapper.toDto(customerService.updateCustomer(id, customerMapper.toEntity(customer))));
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }

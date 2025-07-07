@@ -16,6 +16,7 @@ public class AccountController {
 
 	// TODO: SpringBoot:Practical 7.1 - Test CRUD services below and ensure it's working on swagger
 	
+	// ensure requestBody is DTO instead of Entity
 	// ensure return item map to DTO instead of entity
 	// use CustomerController.java as an example
 	
