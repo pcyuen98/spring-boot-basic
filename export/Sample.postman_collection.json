@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "POST_Day1",
+			"name": "POST",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -19,7 +19,7 @@
 			"response": []
 		},
 		{
-			"name": "POST_Day1 Object",
+			"name": "GET",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -30,7 +30,7 @@
 			"response": []
 		},
 		{
-			"name": "GET_Day1",
+			"name": "GET By ID",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -41,7 +41,7 @@
 			"response": []
 		},
 		{
-			"name": "DEL_Day1",
+			"name": "DEL",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -52,18 +52,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT_Day1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": ""
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET_ALL_Day1",
+			"name": "PUT",
 			"request": {
 				"method": "GET",
 				"header": [],

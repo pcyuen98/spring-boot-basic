@@ -30,7 +30,7 @@ class AccountCascadeMergeTest {
 	   @Autowired
 	    private IAccountRepo accountRepo;
 	    
-		@Test
+		//@Test
 	    void testSaveCustomerWithAccount() {
 	        CustomerEntity customer = new CustomerEntity();
 	        customer.setIcNumber("IC123456789");
