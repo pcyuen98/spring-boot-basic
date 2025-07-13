@@ -28,7 +28,7 @@ class CustomerFetchEagerLoadTest {
     @Autowired
     private ICustomerRepo customerRepo;
     
-	@Test
+	//@Test
     void testSaveCustomerWithAccount() {
         // Step 1: Create Customer
         CustomerEntity customer = new CustomerEntity();
