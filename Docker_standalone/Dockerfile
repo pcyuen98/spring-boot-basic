@@ -25,7 +25,7 @@ RUN adduser developer && echo "developer:pass" | chpasswd
 # Set working directory
 WORKDIR /workspace
 
-EXPOSE 8081
+EXPOSE 8083
 
 # Default command
 CMD ["/usr/sbin/init"]
