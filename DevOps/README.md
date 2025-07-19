@@ -35,7 +35,7 @@ https://docs.google.com/document/d/1lA943jjR6xn4j2xGGV28KjG0txAVwkNRLT0UxYGwq5Y/
 
 
 # Useful Debugging Command
-Refer to Manual useful command
+Refer to Manual A useful command
 
 # Practical SpreadSheet
 Group info
