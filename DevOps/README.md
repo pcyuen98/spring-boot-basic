@@ -20,16 +20,16 @@ Automate Infra & Monitor - Learn basic scripting for infrastructure automation a
 
 </b>
 
-# Manual A - Create your first Git Hub
+# DevOps Manual A - Setup GIT and Pull Request
 https://docs.google.com/document/d/1BR84au5OCLz9TS41T6mz5OK9Bi4HLZDq6rlTx0t45OM/edit?usp=drive_link
 
-# SpringBoot- Manual B - Configuration
+# DevOps Manual B - GIT Conflict and Merging
 https://docs.google.com/document/d/1lUEhs_lyyFm3gLj2zC6gcDJk0QrB-1FNZ7SYb5yG8b0/edit?usp=drive_link
 
-# SpringBoot- Manual C - Spring Initializer
+# DevOps Manual C - Setup CD/CD Environment
 https://docs.google.com/document/d/1Ddx9gH7-XE7aU-_mMosoEYGI6afWj0TZ0_YAicJRgI4/edit?usp=drive_link
 
-# SpringBoot- Manual D - SonarQube
+# DevOps Manual D - Deploy using Jenkins
 https://docs.google.com/document/d/1lA943jjR6xn4j2xGGV28KjG0txAVwkNRLT0UxYGwq5Y/edit?usp=drive_link
 
 
