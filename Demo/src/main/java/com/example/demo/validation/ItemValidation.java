@@ -10,7 +10,7 @@ public class ItemValidation {
 	 */
 	public static void validateItemName(String itemName) {
 		if (itemName == null || itemName.isBlank()) {
-			throw new IllegalArgumentException("Item name cannot be empty or blank.");
+			throw new RuntimeException("Item name cannot be empty or blank.");
 		}
 	}
 

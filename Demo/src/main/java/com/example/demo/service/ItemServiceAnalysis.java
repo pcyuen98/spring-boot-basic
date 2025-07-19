@@ -8,7 +8,7 @@ import com.example.demo.model.Item;
 
 //Discuss in a group 
 //How to modify the existing Spring Boot to search input words
-//Discuss why use DO POST or DO GET or vice versa
+//Discuss why use DO POST or DO GET or vice versa for the case below?
 
 //What you need to do
 

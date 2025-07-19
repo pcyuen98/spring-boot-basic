@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Item;
 import com.example.demo.service.ItemService;
+import com.example.demo.util.ResponseEntityUtil;
 import com.example.demo.validation.ItemValidation;
 
 @RestController
@@ -32,7 +33,7 @@ public class CRUDControllerRefined {
     public ResponseEntity<String> createItem(@RequestBody String newItemName) {
         ItemValidation.validateItemName(newItemName);
         Item item = itemService.createItem(newItemName);
-        return buildResponse("Item created successfully with ID: " + item.id() + " and data: " + item.value(), HttpStatus.CREATED);
+        return ResponseEntityUtil.buildResponse("Item created successfully with ID: " + item.id() + " and data: " + item.value(), HttpStatus.CREATED);
     }
 
     // --- READ (All Items) ---
@@ -45,8 +46,8 @@ public class CRUDControllerRefined {
     @GetMapping("/{id}")
     public ResponseEntity<String> getItemById(@PathVariable Long id) {
         return itemService.getItemById(id)
-                .map(item -> buildResponse("Found item with ID: " + item.id() + " and data: " + item.value(), HttpStatus.OK))
-                .orElseGet(() -> buildResponse("Item with ID: " + id + " not found.", HttpStatus.NOT_FOUND));
+                .map(item -> ResponseEntityUtil.buildResponse("Found item with ID: " + item.id() + " and data: " + item.value(), HttpStatus.OK))
+                .orElseGet(() -> ResponseEntityUtil.buildResponse("Item with ID: " + id + " not found.", HttpStatus.NOT_FOUND));
     }
 
     // --- UPDATE ---
@@ -54,20 +55,17 @@ public class CRUDControllerRefined {
     public ResponseEntity<String> updateItem(@PathVariable Long id, @RequestBody String updatedName) {
         ItemValidation.validateItemName(updatedName);
         return itemService.updateItem(id, updatedName)
-                .map(item -> buildResponse("Item with ID: " + item.id() + " updated successfully to: " + item.value(), HttpStatus.OK))
-                .orElseGet(() -> buildResponse("Item with ID: " + id + " not found for update.", HttpStatus.NOT_FOUND));
+                .map(item -> ResponseEntityUtil.buildResponse("Item with ID: " + item.id() + " updated successfully to: " + item.value(), HttpStatus.OK))
+                .orElseGet(() -> ResponseEntityUtil.buildResponse("Item with ID: " + id + " not found for update.", HttpStatus.NOT_FOUND));
     }
 
     // --- DELETE ---
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteItem(@PathVariable Long id) {
         return itemService.deleteItem(id)
-                ? buildResponse("Item with ID: " + id + " deleted successfully.", HttpStatus.NO_CONTENT)
-                : buildResponse("Item with ID: " + id + " not found for deletion.", HttpStatus.NOT_FOUND);
+                ? ResponseEntityUtil.buildResponse("Item with ID: " + id + " deleted successfully.", HttpStatus.NO_CONTENT)
+                : ResponseEntityUtil.buildResponse("Item with ID: " + id + " not found for deletion.", HttpStatus.NOT_FOUND);
     }
 
-    // --- Utility: standard response creation ---
-    private ResponseEntity<String> buildResponse(String message, HttpStatus status) {
-        return new ResponseEntity<>(message, status);
-    }
+
 }

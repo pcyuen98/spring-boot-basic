@@ -20,10 +20,10 @@ class ItemValidationPositiveTest {
     }
 
     @Test
-    @DisplayName("validateItemName: Should throw IllegalArgumentException for a blank name")
+    @DisplayName("validateItemName: Should throw RuntimeException for a blank name")
     void validateItemName_InvalidCase_Blank() {
         String blankName = "   ";
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
             ItemValidation.validateItemName(blankName);
         });
         assertEquals("Item name cannot be empty or blank.", thrown.getMessage());
