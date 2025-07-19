@@ -2,7 +2,7 @@
 
 <p align="center">
 
-  <img width="460" height="300" src="./pic/kubernetes.jpg">
+  <img width="460" height="300" src="https://github.com/pcyuen98/spring-boot-basic/blob/main/DevOps/pic/kubernetes.png">
 </p>
 
 <b>
