@@ -51,7 +51,7 @@ telnet localhost 3308
 
 # Practical SpreadSheet
 Group info
-https://docs.google.com/spreadsheets/d/1ZDRC1oJA2bZm2W6ykvRZ0QyLejI9z1BU/edit?gid=1324934410#gid=1324934410
+https://docs.google.com/spreadsheets/d/1iNm0TGutc1UghshK5A6Ga0GZq0n7MKN0/edit?gid=1324934410#gid=1324934410
 
 # Presentation Slide
 https://drive.google.com/drive/folders/1fz0aLFDbyehaNu5N4h2BnKm7cin6kasY?usp=sharing
