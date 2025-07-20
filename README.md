@@ -54,7 +54,7 @@ Group info
 https://docs.google.com/spreadsheets/d/1iNm0TGutc1UghshK5A6Ga0GZq0n7MKN0/edit?gid=1324934410#gid=1324934410
 
 # Presentation Slide
-https://drive.google.com/drive/folders/1fz0aLFDbyehaNu5N4h2BnKm7cin6kasY?usp=sharing
+https://docs.google.com/presentation/d/1huM1lRwSCOsBtvnc439s5s46CokALZUH/edit?usp=drive_link&ouid=116835209913605927765&rtpof=true&sd=true
 
 # Lombok Installation (Only Needed when Eclipse has a lot error after Maven Update)
 https://drive.google.com/file/d/10wcjnPbOdNNPgKAz9UFcTF90ogZvROZP/view?usp=sharing
