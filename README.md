@@ -61,3 +61,6 @@ https://drive.google.com/file/d/10wcjnPbOdNNPgKAz9UFcTF90ogZvROZP/view?usp=shari
 
 # decompiler 
 http://www.javadecompilers.com/
+
+# Useful URL
+Default swagger URL - http://localhost:xxx/swagger-ui/
