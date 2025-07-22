@@ -17,7 +17,7 @@ public class ProductController {
 	// account is a passing parameter
 	// use swagger to test it
 	
-	@GetMapping("/by-account-number/{accountNumber}")
+	@GetMapping("/byAccountNumber/{accountNumber}")
 	public ResponseEntity<AccountEntity> getByAccountNumber(@PathVariable String accountNumber) {
 	    return null;
 	}
