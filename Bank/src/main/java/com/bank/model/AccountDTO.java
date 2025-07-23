@@ -18,6 +18,5 @@ public class AccountDTO {
 
     private CustomerDTO customerDTO;
 
-    // Optional: include only product IDs or names
-    //private Set<ProductBasicDTO> products;
+    private ProductDTO productDTO;
 }

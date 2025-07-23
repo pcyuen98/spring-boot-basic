@@ -17,7 +17,7 @@ import com.bank.entity.CustomerEntity;
 //@ActiveProfiles("test") // Uses application-test.properties for H2 setup
 class CustomerFetchEagerLoadTest {
 
-	//TODO: SpringBoot: Practical Bonus 1 - Eager load vs Lazy Load
+	//TODO: SpringBoot: Practical Bonus 2 - Eager load vs Lazy Load
 	
 	// When one to many relation in the entity, default fetch is Lazy Load 
 	

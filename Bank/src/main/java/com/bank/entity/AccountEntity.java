@@ -1,15 +1,24 @@
 package com.bank.entity;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
@@ -38,18 +47,20 @@ public class AccountEntity implements Serializable {
 	// @ManyToOne(optional = false, cascade = {CascadeType.PERSIST}) // account must
 	// have a customer
 	
+
+	@OneToOne(optional = false) // account must have a product 
+	@JoinColumn(name = "product_id", nullable = false)
+	private ProductEntity productEntity;
+	
 	@ManyToOne(optional = false) // account must have a customer
 	@JoinColumn(name = "customer_id", nullable = false)
 	private CustomerEntity customerEntity;
 
+	
 	@Column(name = "creation_date", nullable = false)
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private LocalDateTime creationDate;
-
-	@ManyToMany
-	@JoinTable(name = "account_product", joinColumns = @JoinColumn(name = "account_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-	private Set<ProductEntity> products = new HashSet<>();
-
+	
 	// Set creationDate to current time if it's null before persisting
 	@PrePersist
 	protected void onCreate() {

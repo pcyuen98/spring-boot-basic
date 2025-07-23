@@ -2,7 +2,6 @@ package com.bank.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,36 +24,32 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/accounts/v1")
 public class AccountController {
 
-	// TODO: SpringBoot:Practical 7.1 - Test CRUD services below and ensure it's working on swagger
-	
-	// ensure requestBody is DTO instead of Entity
-	// ensure return item map to DTO instead of entity
-	// use CustomerController.java as an example
-	
-    
     private final IAccountService accountService;
-    
-	@Autowired
-	private AccountMapper accountMapper;
+
+    private final AccountMapper accountMapper;
 
     @PostMapping
-    public ResponseEntity<AccountEntity> create(@RequestBody AccountEntity account) {
-        return ResponseEntity.ok(accountService.createAccount(account));
+    public ResponseEntity<AccountDTO> create(@RequestBody AccountDTO accountDto) {
+        var savedEntity = accountService.createAccount(accountMapper.toEntity(accountDto));
+        return ResponseEntity.ok(accountMapper.toDto(savedEntity));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<AccountDTO> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(accountMapper.toDto(accountService.getAccountById(id)));
+    	AccountEntity accountEntity = accountService.getAccountById(id);
+        return ResponseEntity.ok(accountMapper.toDto(accountEntity));
     }
 
     @GetMapping
-    public ResponseEntity<List<AccountEntity>> getAll() {
-        return ResponseEntity.ok(accountService.getAllAccounts());
+    public ResponseEntity<List<AccountDTO>> getAll() {
+        var entities = accountService.getAllAccounts();
+        return ResponseEntity.ok(accountMapper.toDtoList(entities));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<AccountEntity> update(@PathVariable Long id, @RequestBody AccountEntity account) {
-        return ResponseEntity.ok(accountService.updateAccount(id, account));
+    public ResponseEntity<AccountDTO> update(@PathVariable Long id, @RequestBody AccountDTO accountDto) {
+        var updatedEntity = accountService.updateAccount(id, accountMapper.toEntity(accountDto));
+        return ResponseEntity.ok(accountMapper.toDto(updatedEntity));
     }
 
     @DeleteMapping("/{id}")

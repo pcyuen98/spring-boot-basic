@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication(scanBasePackages = {
-//		"com.bank",
-//		"com.demo.util.config"
+		"com.bank",
+		"com.demo.util.config"
 	})
 public class BankApplication {
 

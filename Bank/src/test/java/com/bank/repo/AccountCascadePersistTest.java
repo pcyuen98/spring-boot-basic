@@ -16,7 +16,7 @@ import com.bank.entity.CustomerEntity;
 @SpringBootTest
 @ActiveProfiles("test") // Uses application-test.properties for H2 setup
 class AccountCascadePersistTest {
-	//TODO: SpringBoot: Practical Bonus 2 - Cascade persist
+	//TODO: SpringBoot: Practical Bonus 3 - Cascade persist
 	
 		// Child class by default disallow to save parent class
 		// You need to create parent first then save child class

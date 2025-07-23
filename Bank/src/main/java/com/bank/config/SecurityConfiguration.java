@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration {
+public class SecurityConfiguration  {
 	/**
 	 * Configures a SecurityFilterChain that effectively disables all Spring
 	 * Security protections by permitting all requests. This is typically used for

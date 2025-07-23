@@ -1,5 +1,6 @@
 package com.bank.repo;
 
-public interface IProductRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.bank.entity.ProductEntity;
 
-}
+public interface IProductRepo {}

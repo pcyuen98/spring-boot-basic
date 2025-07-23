@@ -1,8 +1,8 @@
 package com.bank.service;
 
-import com.bank.entity.AccountEntity;
-
 import java.util.List;
+
+import com.bank.entity.AccountEntity;
 
 public interface IAccountService {
     AccountEntity createAccount(AccountEntity account);

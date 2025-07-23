@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,17 +19,18 @@ import com.bank.mapper.CustomerMapper;
 import com.bank.model.CustomerDTO;
 import com.bank.service.ICustomerService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/customers/v1")
 public class CustomerController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 	
-    @Autowired
-    private ICustomerService customerService;
+    private final ICustomerService customerService;
 
-    @Autowired
-    private CustomerMapper customerMapper;
+    private final CustomerMapper customerMapper;
     
     @PostMapping
     public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customer) {

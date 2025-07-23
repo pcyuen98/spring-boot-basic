@@ -1,19 +1,21 @@
 package com.bank.service;
 
-import com.bank.entity.AccountEntity;
-import com.bank.repo.IAccountRepo;
-import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.bank.entity.AccountEntity;
+import com.bank.repo.IAccountRepo;
+
+import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @Service
 public class AccountServiceImpl implements IAccountService {
 
-    @Autowired
-    private IAccountRepo accountRepo;
-
+    private final IAccountRepo accountRepo;
+    
     @Override
     public AccountEntity createAccount(AccountEntity account) {
         return accountRepo.save(account);

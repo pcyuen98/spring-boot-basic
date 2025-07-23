@@ -48,18 +48,6 @@ public class ActuatorSummaryController {
 		return ResponseEntity.ok(result);
 	}
 	
-	//TODO: SpringBoot: Practical 10 - Implementing custom error handling mechanisms for actuator.
-	// Refer to the day 1 demo app sample, locate the exception handler sample on com.example.demo.exception package
-	// modify the controller below to accept parameter of search string of metric value .i.e jvm or http
-	// if value not found then throw a custom exception 
-	
-	// write a unit testing for the exception class handler. Refer to ValidationExceptionHandlerTest.java from the demo app
-	
-	// TODO: SpringBoot: Practical 11 - Logging Level
-	// Change the application.properties to enable error logging only
-	// Ensure the practical logging error in error level only
-	// When restart Spring boot, monitor that all other info level logging disabled
-	
 	@GetMapping("/metricDetails")
 	public ResponseEntity<Map<String, Object>> getActuatorMetric() {
 		Map<String, Object> result = new LinkedHashMap<>();

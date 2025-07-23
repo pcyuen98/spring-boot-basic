@@ -18,7 +18,7 @@ import com.bank.entity.CustomerEntity;
 // @ActiveProfiles("test") // Uses application-test.properties for H2 setup
 class AccountCascadeMergeTest {
 
-	//TODO: SpringBoot: Practical Bonus 3 - Cascade merge
+	//TODO: SpringBoot: Practical Bonus 4 - Cascade merge
 	
 	// Child class by default disallow to update parent class
 	// You need to have Cascade type Merge
