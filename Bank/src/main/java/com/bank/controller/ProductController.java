@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bank.mapper.ProductMapper;
 import com.bank.model.ProductDTO;
 import com.bank.service.IProductService;
+import com.demo.exceptions.DemoAppException;
 
 import lombok.AllArgsConstructor;
 
@@ -29,13 +30,13 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getAllProducts() {
-        return ResponseEntity.ok(
-            productMapper.toDtoList(productService.getAllProducts())
-        );
+    	throw new DemoAppException("Demo exception testing");
+
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) {
+    	
         return ResponseEntity.ok(
             productMapper.toDto(productService.getProductById(id))
         );

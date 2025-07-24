@@ -32,4 +32,17 @@ public class ValidationExceptionHandler {
 		return responseEntity;
 
 	}
+	
+	@ExceptionHandler(RuntimeException.class)
+	public ResponseEntity<Map<String, Object>> handleValidationException(RuntimeException ex) {
+		
+		ResponseEntity<Map<String, Object>> responseEntity = ResponseEntityUtil
+				.getResponseEntity(ValidationExceptionHandler.class.toString(), HttpStatus.INTERNAL_SERVER_ERROR, ex);
+
+		if (log.isErrorEnabled()) {
+			log.error("RuntimeException Exception handled: {}", responseEntity);
+		}
+		return responseEntity;
+
+	}
 }

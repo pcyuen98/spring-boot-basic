@@ -23,7 +23,8 @@ import com.example.demo.validation.ItemValidation;
 public class CRUDControllerRefined {
 
     private final ItemService itemService;
-
+    
+    private static String ID_ITEM =  "Item with ID: ";
     public CRUDControllerRefined(ItemService itemService) {
         this.itemService = itemService;
     }
@@ -47,7 +48,7 @@ public class CRUDControllerRefined {
     public ResponseEntity<String> getItemById(@PathVariable Long id) {
         return itemService.getItemById(id)
                 .map(item -> ResponseEntityUtil.buildResponse("Found item with ID: " + item.id() + " and data: " + item.value(), HttpStatus.OK))
-                .orElseGet(() -> ResponseEntityUtil.buildResponse("Item with ID: " + id + " not found.", HttpStatus.NOT_FOUND));
+                .orElseGet(() -> ResponseEntityUtil.buildResponse(CRUDControllerRefined.ID_ITEM + id + " not found.", HttpStatus.NOT_FOUND));
     }
 
     // --- UPDATE ---
@@ -55,8 +56,8 @@ public class CRUDControllerRefined {
     public ResponseEntity<String> updateItem(@PathVariable Long id, @RequestBody String updatedName) {
         ItemValidation.validateItemName(updatedName);
         return itemService.updateItem(id, updatedName)
-                .map(item -> ResponseEntityUtil.buildResponse("Item with ID: " + item.id() + " updated successfully to: " + item.value(), HttpStatus.OK))
-                .orElseGet(() -> ResponseEntityUtil.buildResponse("Item with ID: " + id + " not found for update.", HttpStatus.NOT_FOUND));
+                .map(item -> ResponseEntityUtil.buildResponse(CRUDControllerRefined.ID_ITEM + item.id() + " updated successfully to: " + item.value(), HttpStatus.OK))
+                .orElseGet(() -> ResponseEntityUtil.buildResponse(CRUDControllerRefined.ID_ITEM + id + " not found for update.", HttpStatus.NOT_FOUND));
     }
 
     // --- DELETE ---
