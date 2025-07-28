@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bank.entity.AccountEntity;
 import com.bank.mapper.AccountMapper;
+import com.bank.mapper.BranchMapper;
 import com.bank.model.AccountDTO;
+import com.bank.model.BranchDTO;
 import com.bank.service.IAccountService;
 
 import lombok.AllArgsConstructor;
@@ -27,11 +29,19 @@ public class AccountController {
     private final IAccountService accountService;
 
     private final AccountMapper accountMapper;
-
+    
+    private final BranchMapper branchMapper;
+    
     @PostMapping
     public ResponseEntity<AccountDTO> create(@RequestBody AccountDTO accountDto) {
         var savedEntity = accountService.createAccount(accountMapper.toEntity(accountDto));
         return ResponseEntity.ok(accountMapper.toDto(savedEntity));
+    }
+
+    @PostMapping("/branch/{id}")
+    public ResponseEntity<BranchDTO> createWithBranch(@RequestBody AccountDTO accountDto, @PathVariable Long id) {
+        var savedEntity = accountService.createAccountWithBranch(id, accountMapper.toEntity(accountDto));
+        return ResponseEntity.ok(branchMapper.toDto(savedEntity));
     }
 
     @GetMapping("/{id}")
@@ -42,7 +52,7 @@ public class AccountController {
 
     @GetMapping
     public ResponseEntity<List<AccountDTO>> getAll() {
-        var entities = accountService.getAllAccounts();
+    	List<AccountEntity> entities = accountService.getAllAccounts();
         return ResponseEntity.ok(accountMapper.toDtoList(entities));
     }
 

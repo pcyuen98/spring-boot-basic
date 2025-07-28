@@ -1,6 +1,8 @@
 package com.bank.model;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,13 +11,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccountDTO {
+public class BranchDTO {
 
-    private Long accountID;
-    private String accountNumber;
-    private Double balance;
+    private Long branchID;
+    private String branchName;
+    private String branchPostCode;
     private LocalDateTime creationDate;
-    private CustomerDTO customerDTO;
-    private ProductDTO productDTO;
-
+    private Set<AccountDTO> accounts = new HashSet<>();
 }
