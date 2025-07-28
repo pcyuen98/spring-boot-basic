@@ -13,6 +13,7 @@ public interface AccountMapper {
 
 	@Mapping(source = "customerEntity", target = "customerDTO")
 	@Mapping(source = "productEntity", target = "productDTO")
+	
 	AccountDTO toDto(AccountEntity entity);
 
 	@Mapping(source = "customerDTO", target = "customerEntity")

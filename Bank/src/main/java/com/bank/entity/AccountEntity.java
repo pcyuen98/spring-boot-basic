@@ -76,5 +76,5 @@ public class AccountEntity implements Serializable {
 	}
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "accounts")
-	private Set<BranchEntity> branchEntities = new HashSet<>();
+	private Set<BranchEntity> branchesEntities = new HashSet<>();
 }
