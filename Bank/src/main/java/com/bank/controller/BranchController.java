@@ -1,5 +1,12 @@
 package com.bank.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.bank.model.ProductDTO;
+import com.bank.validation.BranchValidation;
+
 //Practical 8 - End to End Spring Boot 
 //Create a branch entity with the data below
 //a. BranchEntity.java
@@ -33,8 +40,12 @@ package com.bank.controller;
 //Add on the method to the controller, service and repo
 
 
-//g1 - UnitTesting - Create a BranchSearchTest.java for g2 and g3 above.
+//g1 - UnitTesting - Create a BranchSearchTest.java for f2 and f3 above.
 
 public class BranchController {
 
+  //  @PostMapping
+  //  public ResponseEntity<Object> createProduct(@RequestBody Object productDto) {
+       
+   // }
 }

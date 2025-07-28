@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bank.mapper.ProductMapper;
 import com.bank.model.ProductDTO;
 import com.bank.service.IProductService;
+import com.bank.validation.BranchValidation;
+//import com.demo.exceptions.DemoAppException;
 import com.demo.exceptions.DemoAppException;
 
 import lombok.AllArgsConstructor;
@@ -30,7 +32,7 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getAllProducts() {
-    	throw new DemoAppException("Demo exception testing");
+    throw new DemoAppException("test");
 
     }
 
@@ -44,6 +46,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDto) {
+    	BranchValidation.validateBranchName(productDto.getProductName());
         return ResponseEntity.ok(
             productMapper.toDto(
                 productService.createProduct(productMapper.toEntity(productDto))
