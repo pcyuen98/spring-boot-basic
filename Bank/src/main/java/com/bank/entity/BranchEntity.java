@@ -62,7 +62,8 @@ public class BranchEntity implements Serializable {
 	// Many-to-Many Relationship Setup 
 	// ===============================
 	
-	// BranchEntity - (Add Getter and Setter annotation) - See above
+	// BranchEntity.java - (Add Getter and Setter annotation) - See above
+	// =================
 
 	// AccountEntity.java (Add Getter and Setter annotation)
 	// ==================
