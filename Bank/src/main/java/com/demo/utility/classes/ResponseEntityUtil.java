@@ -1,4 +1,4 @@
-package com.demo.utility_classes;
+package com.demo.utility.classes;
 
 import java.util.HashMap;
 import java.util.Map;
