@@ -59,10 +59,12 @@ public class BranchEntity implements Serializable {
 		}
 	}
 
-	// Many-to-Many Relationship Setup
+	// Many-to-Many Relationship Setup 
 	// ===============================
+	
+	// BranchEntity - (Add Getter and Setter annotation) - See above
 
-	// AccountEntity.java
+	// AccountEntity.java (Add Getter and Setter annotation)
 	// ==================
 	// Defines a many-to-many relationship between AccountEntity and BranchEntity.
 	// @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "accounts")
