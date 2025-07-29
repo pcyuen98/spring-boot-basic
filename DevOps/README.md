@@ -23,15 +23,14 @@ Automate Infra & Monitor - Learn basic scripting for infrastructure automation a
 # DevOps Manual A - Setup GIT and Pull Request
 https://docs.google.com/document/d/1BR84au5OCLz9TS41T6mz5OK9Bi4HLZDq6rlTx0t45OM/edit?usp=drive_link
 
-# DevOps Manual B - GIT Conflict and Merging
-https://docs.google.com/document/d/1lUEhs_lyyFm3gLj2zC6gcDJk0QrB-1FNZ7SYb5yG8b0/edit?usp=drive_link
-
-# DevOps Manual C - Setup CI/CD Environment
+# DevOps Manual B - Setup CI/CD Environment
 https://docs.google.com/document/d/1Ddx9gH7-XE7aU-_mMosoEYGI6afWj0TZ0_YAicJRgI4/edit?usp=drive_link
 
-# DevOps Manual D - Deploy using Jenkins
+# DevOps Manual C - Deploy using Jenkins
 https://docs.google.com/document/d/1lA943jjR6xn4j2xGGV28KjG0txAVwkNRLT0UxYGwq5Y/edit?usp=drive_link
 
+# DevOps Manual D (Optional) - GIT Conflict and Merging
+https://docs.google.com/document/d/1lUEhs_lyyFm3gLj2zC6gcDJk0QrB-1FNZ7SYb5yG8b0/edit?usp=drive_link
 
 
 # Useful Debugging Command
