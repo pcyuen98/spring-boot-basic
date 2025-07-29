@@ -11,5 +11,5 @@ public interface IAccountService {
     List<AccountEntity> getAllAccounts();
     AccountEntity updateAccount(Long id, AccountEntity updated);
     void deleteAccount(Long id);
-	BranchEntity createAccountWithBranch(long BranchID, AccountEntity account);
+	BranchEntity createAccountWithBranch(long branchID, AccountEntity account);
 }
