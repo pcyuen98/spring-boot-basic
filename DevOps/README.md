@@ -32,6 +32,9 @@ https://docs.google.com/document/d/1lA943jjR6xn4j2xGGV28KjG0txAVwkNRLT0UxYGwq5Y/
 # DevOps Manual D (Optional) - GIT Conflict and Merging
 https://docs.google.com/document/d/1lUEhs_lyyFm3gLj2zC6gcDJk0QrB-1FNZ7SYb5yG8b0/edit?usp=drive_link
 
+# DevOPs Manual F (Optional) - Deploy to Azure Cloud
+https://docs.google.com/document/d/1wQ_xy3jNz_6oJuPkDgnka5gToJpE9drqtzozuXm1gm0/edit?tab=t.0
+
 
 # Useful Debugging Command
 Refer to Manual A useful command
