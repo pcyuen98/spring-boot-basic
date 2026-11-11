@@ -1,11 +1,11 @@
 package com.bank.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.health.HealthEndpoint;
+import org.springframework.boot.health.actuate.endpoint.HealthEndpoint;
 import org.springframework.boot.actuate.info.InfoEndpoint;
-import org.springframework.boot.actuate.metrics.MetricsEndpoint;
-import org.springframework.boot.actuate.metrics.MetricsEndpoint.MetricDescriptor;
-import org.springframework.boot.actuate.metrics.MetricsEndpoint.MetricNamesDescriptor;
+import org.springframework.boot.micrometer.metrics.actuate.endpoint.MetricsEndpoint;
+import org.springframework.boot.micrometer.metrics.actuate.endpoint.MetricsEndpoint.MetricDescriptor;
+import org.springframework.boot.micrometer.metrics.actuate.endpoint.MetricsEndpoint.MetricNamesDescriptor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

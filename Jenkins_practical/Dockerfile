@@ -7,7 +7,7 @@ RUN dnf -y install epel-release
 RUN yum clean all
 RUN yum -y install wget
 RUN yum -y install git
-RUN yum -y install java-17-openjdk
+RUN yum -y install java-21-openjdk
 
 RUN yum -y install iproute
 RUN yum -y install telnet

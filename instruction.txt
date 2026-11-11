@@ -1,0 +1,5 @@
+update this project to jdk21 and spring boot 4.0 including all subfolders
+
+ensure maven build is success and Bank project spring boot can be started successfully.
+
+do not commit code.
